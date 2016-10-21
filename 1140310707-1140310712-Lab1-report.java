@@ -70,7 +70,7 @@ public class App
 		    			}
 		    			else
 		    			{
-		    				//System.out.println("d"+list[0]);
+		    				System.out.println("d"+list[0]); //test
 		    				calculate.derivative(list[0]);
 		    				if(debug==1)
 		    				{
