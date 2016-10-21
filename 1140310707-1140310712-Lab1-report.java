@@ -81,7 +81,7 @@ public class App
 		    		}
 		    		if(inputstr.length()>=10&&inputstr.substring(1, 9).compareTo("simplify")==0)//simplify
 		    		{
-		    			//System.out.println(inputstr.substring(9));
+		    			System.out.println(inputstr.substring(9)); //test
 		    			string strcheck=inputstr.substring(9);
 		    			strcheck=strcheck.replaceAll("\\s*=\\s*", "=");
 		    			string[] tmp= strcheck.split(" ");
