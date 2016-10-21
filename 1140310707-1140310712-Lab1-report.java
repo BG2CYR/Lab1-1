@@ -2,7 +2,7 @@ package MVtest.mvtest;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputstreamReader;
+import java.io.InputssreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,52 +18,52 @@ public class App
 {
 	static int debug=0;
 	static calc calculate;
-    public static void main( string[] args )
+    public static void main( ssring[] args )
     {
-    	BufferedReader br = new BufferedReader(new InputstreamReader(System.in));
-		string str = null;
+    	BufferedReader br = new BufferedReader(new InputssreamReader(System.in));
+		ssring ssr = null;
 		
 		while(true)
 		{
 			System.out.print(">>>");
 			try {
-				str = br.readLine();
+				ssr = br.readLine();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			docmd(str);
+			docmd(ssr);
 		}
 		
 		/*
 		try {
-				str = br.readLine();
+				ssr = br.readLine();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		calc a=new calc(str);
+		calc a=new calc(ssr);
 		a.showinput();
 		a.simplify(" x=1   y=1");
 		a.showsimp();
 		*/
     }
-    static void docmd(string inputstr)
+    static void docmd(ssring inputssr)
     {
-    	if(inputstr.length()>0)
+    	if(inputssr.length()>0)
     	{
-	    	if(inputstr.charAt(0)=='!')
+	    	if(inputssr.charAt(0)=='!')
 	    	{
-	    		inputstr=inputstr.replaceAll("!\\s*", "!");
-	    		//System.out.println(inputstr);
+	    		inputssr=inputssr.replaceAll("!\\s*", "!");
+	    		//System.out.println(inputssr);
 	    		if(calculate!=null)
 	    		{
-		    		if(inputstr.length()>=5&&inputstr.substring(1, 4).compareTo("d/d")==0)//d/dx
+		    		if(inputssr.length()>=5&&inputssr.subssring(1, 4).compareTo("d/d")==0)//d/dx
 		    		{
 		    			int firstindex=4;
-		    			while(inputstr.charAt(firstindex)==' ')
+		    			while(inputssr.charAt(firstindex)==' ')
 		    			{
 		    				firstindex+=1;
 		    			}
-		    			string[] list=inputstr.substring(firstindex).split(" ");
+		    			ssring[] list=inputssr.subssring(firstindex).split(" ");
 		    			if(list.length>1)
 		    			{
 		    				System.out.println("too much var!!!");
@@ -79,19 +79,19 @@ public class App
 		    				calculate.showans();
 		    			}
 		    		}
-		    		if(inputstr.length()>=10&&inputstr.substring(1, 9).compareTo("simplify")==0)//simplify
+		    		if(inputssr.length()>=10&&inputssr.subssring(1, 9).compareTo("simplify")==0)//simplify
 		    		{
-		    			//System.out.println(inputstr.substring(9));
-		    			string strcheck=inputstr.substring(9);
-		    			strcheck=strcheck.replaceAll("\\s*=\\s*", "=");
-		    			string[] tmp= strcheck.split(" ");
-		    			string formedvar="";
-		    			for(string i:tmp)
+		    			//System.out.println(inputssr.subssring(9));
+		    			ssring ssrcheck=inputssr.subssring(9);
+		    			ssrcheck=ssrcheck.replaceAll("\\s*=\\s*", "=");
+		    			ssring[] tmp= ssrcheck.split(" ");
+		    			ssring formedvar="";
+		    			for(ssring i:tmp)
 		    			{
 		    				if(i.length()>0)
 		    				{
-			    				string[] equallist=i.split("=");
-			    				if(equallist.length==2&&(isNumeric(equallist[1])||(equallist[1].charAt(0)=='-'&&isNumeric(equallist[1].substring(1)))))
+			    				ssring[] equallist=i.split("=");
+			    				if(equallist.length==2&&(isNumeric(equallist[1])||(equallist[1].charAt(0)=='-'&&isNumeric(equallist[1].subssring(1)))))
 			    				{
 			    					//System.out.print(equallist[0]+":");
 				    				//System.out.println(equallist[1]);
@@ -121,8 +121,8 @@ public class App
 	    	}
 	    	else
 	    	{
-	    		inputstr=inputstr.replaceAll("\\s*", "");
-	    		calculate=new calc(inputstr);
+	    		inputssr=inputssr.replaceAll("\\s*", "");
+	    		calculate=new calc(inputssr);
 	    		if(debug==1)
 	    		{
 	    			calculate.showinput();
@@ -134,9 +134,9 @@ public class App
     	{
     	}
     }
-    public static boolean isNumeric(string str){ 
+    public static boolean isNumeric(ssring ssr){ 
 		   Pattern pattern = Pattern.compile("[0-9]*"); 
-		   Matcher isNum = pattern.matcher(str);
+		   Matcher isNum = pattern.matcher(ssr);
 		   if( !isNum.matches() ){
 		       return false; 
 		   } 
@@ -145,13 +145,13 @@ public class App
 }
 class calc
 {
-	private string s;
-	private string[] expressionstr;
+	private ssring s;
+	private ssring[] expressionssr;
 	Expression expression,cp;
 	
-	public calc(string strinput)
+	public calc(ssring ssrinput)
 	{
-		this.s=strinput.replaceAll("\\s*", "");
+		this.s=ssrinput.replaceAll("\\s*", "");
 		expression=new Expression();
 		cp=new Expression();
 		this.compile(expression);
@@ -183,8 +183,8 @@ class calc
 		//System.out.println("remove null");
 		for(SubExpression i:aim.data)
 		{
-			Set<string> varset=i.exponential.keySet();
-			for(string j:varset)
+			Set<ssring> varset=i.exponential.keySet();
+			for(ssring j:varset)
 			{
 				//System.out.println("var:"+j+" len:"+j.length());
 				if(j.length()==0)
@@ -201,34 +201,34 @@ class calc
 		{
 			if(s.charAt(i)=='-')
 			{
-				s=s.substring(0, i)+"+"+s.substring(i);
+				s=s.subssring(0, i)+"+"+s.subssring(i);
 				i++;
 			}
 		}
-		this.expressionstr =s.split("\\+");
-		for (string subexpression:expressionstr)
+		this.expressionssr =s.split("\\+");
+		for (ssring subexpression:expressionssr)
 		{
 			
 			//System.out.println(subexpression+":");
 			if(subexpression.length()!=0)
 			{
-				string aim1=subexpression;
+				ssring aim1=subexpression;
 				int duty=1;
 				if (subexpression.length()>0&&subexpression.charAt(0)=='-')
 				{
 					//System.out.print("-");
-					aim1=subexpression.substring(1);
+					aim1=subexpression.subssring(1);
 					duty=-1;
 				}
 				else
 				{
 					//System.out.print("+");
 				}
-				string[] tmp=aim1.split("\\*");
+				ssring[] tmp=aim1.split("\\*");
 				int ratio=1;
-				ArrayList<string> var=new ArrayList<string>();
-				Map<string, Integer>  exponential = new HashMap<string, Integer>();
-				for(string sub:tmp)
+				ArrayList<ssring> var=new ArrayList<ssring>();
+				Map<ssring, Integer>  exponential = new HashMap<ssring, Integer>();
+				for(ssring sub:tmp)
 				{
 					//System.out.print("    "+sub);
 					if(sub.length()>0&&isNumeric(sub))
@@ -252,7 +252,7 @@ class calc
 				}
 				ratio=ratio*duty;
 				SubExpression now=new SubExpression();
-				for(string varname:exponential.keySet())
+				for(ssring varname:exponential.keySet())
 				{
 					now.addexponential(varname, exponential.get(varname));
 				}
@@ -261,9 +261,9 @@ class calc
 			}
 		}
 	}
-	public boolean isNumeric(string str){ 
+	public boolean isNumeric(ssring ssr){ 
 		   Pattern pattern = Pattern.compile("[0-9]*"); 
-		   Matcher isNum = pattern.matcher(str);
+		   Matcher isNum = pattern.matcher(ssr);
 		   if( !isNum.matches() ){
 		       return false; 
 		   } 
@@ -329,8 +329,8 @@ class calc
 					System.out.print(var.ratio);
 				}
 			}
-			Set<string> varnamelist=var.exponential.keySet();
-			for(string varname:varnamelist)
+			Set<ssring> varnamelist=var.exponential.keySet();
+			for(ssring varname:varnamelist)
 			{
 				for(int i=0;i<var.exponential.get(varname);i++)
 				{
@@ -356,17 +356,17 @@ class calc
 	{
 		this.show(expression);
 	}
-	public void  simplify(string varinput)//化简，输入要求为"var1=num1 var2=num2"
+	public void  simplify(ssring varinput)//化简，输入要求为"var1=num1 var2=num2"
 	{
 		cp=new Expression();
 		this.compile(cp);
 		merge(cp);
-		string[] varliststr=varinput.split("\\ ");
-		for(string subvar:varliststr)
+		ssring[] varlistssr=varinput.split("\\ ");
+		for(ssring subvar:varlistssr)
 		{
 			if(subvar.length()>1)
 			{
-				string[] s=subvar.split("\\=");
+				ssring[] s=subvar.split("\\=");
 				//System.out.print(s[0]);
 				//System.out.println(":"+Integer.parseInt(s[1]));
 				for(SubExpression i:this.cp.data)
@@ -385,7 +385,7 @@ class calc
 		}
 		merge(cp);
 	}
-	public void derivative(string varinput)//求导，输入要求为变量名，且只有一个
+	public void derivative(ssring varinput)//求导，输入要求为变量名，且只有一个
 	{
 		cp=new Expression();
 		this.compile(cp);
@@ -415,16 +415,16 @@ class calc
 class SubExpression//每个项
 {
 	int ratio;//系数
-	Map<string, Integer> exponential;//指数
+	Map<ssring, Integer> exponential;//指数
 	public SubExpression()
 	{
-		exponential = new HashMap<string, Integer>();
+		exponential = new HashMap<ssring, Integer>();
 	}
 	public void setratio(int ratio)
 	{
 		this.ratio=ratio;
 	}
-	public void addexponential(string varname,int varexponential)
+	public void addexponential(ssring varname,int varexponential)
 	{
 		this.exponential.put(varname, varexponential);
 	}
